@@ -1,0 +1,80 @@
+
+
+.FAQPageContainer { 
+    height: 100%;
+    width: 100%;
+    padding: 3vw;
+    display: flex;
+    flex-direction: column;
+    gap: 2vw;   
+    animation: leftToRight .2s ease ;  
+}
+
+.FAQPageContainer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -50%;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-image: url('../assets/4.jpg');
+    filter:hue-rotate(900deg);
+    opacity: .1;
+    z-index: -2;
+}
+
+.FAQPageContainer > h2 {
+    font-size: 6rem;
+    font-weight: 200;
+    margin: .6em 0;
+    border: .1px solid white;
+    border-top: none;
+    border-left: none;
+   
+}
+
+.goBack {
+    padding: .5em 1.4em;
+    margin: 0;
+    border: 1px solid rgb(168, 168, 168);
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    border-left: none;
+    font-weight: 200;
+    cursor: pointer;
+}
+
+.goBack:hover {
+    background-color: var(--hover_background); 
+}
+
+@keyframes leftToRight {
+    from {
+        transform: translateX(-100%);
+    } to {
+        transform: translateX(0);
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+  
+    .FAQPageContainer > h2 {
+       font-size: 3rem;
+       border: 1px solid rgb(172, 172, 172);
+       border-top: none;
+       text-align: center;
+    }
+
+    .goBack {
+        padding: .2em .4em;
+    }
+
+    .FAQPageContainer::after {
+        left: -150%;
+    }
+}

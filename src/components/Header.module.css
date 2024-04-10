@@ -1,0 +1,136 @@
+
+:root {
+    --header-height: 6em;
+    --bar-width: 2rem;
+    --bar-height: .1rem;
+    --hamburger-gap: 6px;
+    --hamburger-margin: 8px;
+    --foreground: #ffffff;
+    --background: rgb(0, 0, 0);
+    --animation-timing: 300ms ease-in-out;
+    --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);  
+   
+}
+
+.header {
+    position: relative;
+    background-color: rgba(142, 134, 134, 0.2);
+    border-left: none;
+    border-right: none;
+    width: 100%;
+    max-height: var(--header-height);
+}
+
+.logo {
+    width: calc(var(--header-height)*2);
+    position: absolute;
+    top: calc(var(--header-height)/-2); 
+    overflow: hidden;
+}
+
+.hamburgerMenu {
+   
+    position: absolute;
+    --x-width:calc(var(--hamburger-height)* 1.41421356237); 
+    display: flex;
+    flex-direction: column;
+    gap: var(--hamburger-gap);
+    position: absolute;
+    top: calc(var(--header-height)/2.5);
+    right: calc(var(--header-height)/3);
+    z-index: 9999999999;
+    cursor: pointer;
+}
+
+.hamburgerMenu input  {
+    appearance: none;
+    padding: 0;
+    margin: 0;
+    outline: none;
+    pointer-events: none;
+}
+
+.hamburgerMenu::before,
+.hamburgerMenu::after,
+.hamburgerMenu input {
+    border-radius: 10px;
+    content: '';
+    width: var(--bar-width);
+    height: var(--bar-height);
+    background-color: var(--foreground);
+    transform-origin: left center;
+    transition: opacity var(--animation-timing), width var(--animation-timing)
+    ,rotate var(--animation-timing),translate var(--animation-timing),
+    background-color var(--animation-timing);
+}
+
+
+.hamburgerMenu input:checked {
+    opacity: 0;
+    width: 0;
+}
+
+.hamburgerMenu:has(input:checked)::before {
+    background-color: var(--foreground);
+    rotate: 45deg; 
+    width: var(--x-width);
+    translate:0 calc(var(--bar-height)/-2)
+}
+.hamburgerMenu:has(input:checked)::after {
+    background-color: var(--foreground);
+    rotate: -45deg; 
+    width: var(--x-width); 
+    translate:0 calc(var(--bar-height)/2)
+} 
+
+.sidebar {
+    display: flex;
+    justify-content: center;
+
+    transition: translate var(--animation-timing);
+    translate: -100%;
+
+    padding: 0.5rem 1rem;
+    padding-top:calc(var(--hamburger-height) + var(--hamburger-margin) + 1rem);
+    background-color: var(--background);
+    color: var(--foreground);
+    max-width: 100vw;
+    min-height: 100vh;
+}
+
+.sidebar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -40%;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-image: url('../assets/1.jpg');
+    filter:hue-rotate(900deg);
+    opacity: .1;
+    z-index: -2;
+}
+
+nav {
+    padding: 6em  2em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4em
+}
+
+nav > div {
+    border: .1px solid var(--foreground);
+    padding: 1em 4em;
+    width: 10em;
+}
+
+nav > div:hover {
+   background-color: var(--hover_background);  
+}
+
+.hamburgerMenu:has(input:checked) + .sidebar {
+  translate: 0;
+}

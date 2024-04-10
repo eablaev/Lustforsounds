@@ -1,0 +1,36 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    width: 100vw;
+    background-color: rgba(205, 205, 205, 0.1);
+    height: 6em;
+}
+
+
+.logo{
+    width: 14em;
+    object-fit: cover;
+}
+
+.menuItems {
+    margin-right: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;   
+}
+
+.menuItems > :nth-child(2) {
+    border-left: 0;
+    border-right: 0;
+}
+
+.menuItems > div {
+    border: .1px solid rgb(255, 255, 255);
+    padding: 1em 2em;
+    cursor: pointer;;
+}
+
+.menuItems > div:hover {
+    background-color: var(--hover_background);
+}
+

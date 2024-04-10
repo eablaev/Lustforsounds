@@ -1,0 +1,162 @@
+.mainPage {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    animation: rightToLeft .2s ease ;
+}
+.mainPage::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    opacity: .3;
+    background-image: repeating-linear-gradient(180deg, transparent, transparent 1px, rgb(39, 39, 39) 2px, rgb(158, 130, 130) 2px);
+    z-index: -1;
+}
+.mainPage::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: -40%;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-image: url('../assets/1.jpg');
+    filter:hue-rotate(900deg);
+    opacity: .9;
+    z-index: -2;
+}
+
+.pageContent {
+ margin-top: 2em;
+ flex-grow: 1;
+ display: flex;
+ justify-content: space-around;
+}
+
+.pageBody {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;  
+    align-items: center;
+    width: 100vw;
+}
+
+.list {
+    list-style: none;
+    padding: 0; 
+    display: flex;
+    flex-direction: column;
+    gap: 4em;
+    cursor: pointer;
+}
+
+ .listItem {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: .5em;
+    width: 100vw;
+    text-align: center;
+    padding: 1em 10em;   
+}
+
+
+.listItem:hover {
+   background-color:var(--hover_background);
+}
+
+.listItem:hover .decorItems {
+    rotate: 90deg;
+}
+
+.listItem > h4 {
+    margin: 0;
+    font-size: 2.3em;
+    font-weight: 300; 
+}
+
+.decorItems {
+    width: 6em;
+    position: relative;
+    z-index: -1;
+    transition: .3s ease-in-out;
+}
+
+.decorItems > div {
+    width: 100%;
+    height: .1em;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+}
+
+.decorItems > .decorVer {
+    rotate: 90deg;
+}
+
+.socials {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;  
+}
+
+.socials > img {
+    width: 1.3em;
+    cursor: pointer;
+   transition: all .1s ease;
+}
+.socials > img:hover {
+    scale: 1.1;
+}
+
+.pageContent h1 {
+    font-size: 2em;
+  
+}
+
+@keyframes rightToLeft {
+    from {
+        transform: translateX(200%);
+    } to {
+        transform: translateX(0);
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    .pageBody {
+        justify-content: center;
+    }
+    .list{
+        gap:0;
+    }
+    .listItem {
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: .2em;    
+    }
+ 
+    .listItem > h4 {
+      width: 100%;
+      font-size: 2em;  
+    }
+
+    .decorItems {
+        width: 3em;
+        height: 3rem;   
+    }
+
+    .socials {
+        margin-top: 4em;
+    }
+
+    .socials > img {
+        width: 1em;
+    }
+ }

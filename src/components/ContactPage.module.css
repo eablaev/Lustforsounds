@@ -1,0 +1,136 @@
+
+.contactPageContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    animation: leftToRight .2s ease ;
+}
+
+.contactPageContainer::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-image: url('../assets/2.jpg');
+    filter:hue-rotate(900deg);
+    opacity: .3;
+    z-index: -2;
+} 
+
+.contactPageContainer > h2 {
+    font-size: 4em;
+    font-weight: 300;
+    text-align: center;
+
+    border: .1px solid white;
+    border-top: 0;
+    padding: .2em 1em;
+    margin: .3em;
+}
+
+
+
+.contactPageBody {
+    display: flex;
+    justify-content:space-around;
+    width: 90%;
+    padding: 2em;
+    margin: none;
+    border: .1px solid rgb(255, 255, 255);
+}
+
+.contactOptions {
+    display: flex;
+    gap: 1em;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactOptions > div,
+.contactOptions > a {
+    text-decoration: none;
+    color: #ffffde;
+    font-weight: 100;
+    text-align: center;
+    border: .1px solid white;
+    padding: 1em;
+    width: 10em;
+}
+.contactOptions > div:hover,
+.contactOptions > a:hover{
+    
+   background-color: var(--hover_background);
+}
+
+
+.goBack {
+    padding: .5em 1.4em;
+    margin: 0;
+    border: 1px solid rgb(168, 168, 168);
+    position: absolute;
+    left: 0;
+    top: 0;
+
+    border-left: none;
+    font-weight: 200;
+    cursor: pointer;
+}
+
+.goBack:hover {
+    background-color: var(--hover_background);
+   
+   
+}
+
+@keyframes leftToRight {
+    from {
+        transform: translateX(-100%);
+    } to {
+        transform: translateX(0);
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .goBack {
+        padding: .2em .4em;
+    }
+
+    .contactPageContainer > h2 {
+        font-size: 2em;
+    }
+
+    .contactPageBody {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    iframe {
+        width: 100%;   
+    }
+
+    .contactOptions {
+        flex-direction: row;
+
+    }
+
+    .contactOptions > div,
+    .contactOptions > a {
+   padding: .2em .4em;
+    }
+    .contactPageBody {
+        padding: 0 ;
+        border: none;
+    }
+
+    .contactPageContainer::after {
+        left: -50%;
+    }
+
+}
