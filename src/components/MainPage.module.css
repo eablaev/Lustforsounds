@@ -107,9 +107,10 @@
 }
 
 .socials > img {
-    width: 1.3em;
+    width: 1.4em;
     cursor: pointer;
    transition: all .1s ease;
+   margin: .6em;
 }
 .socials > img:hover {
     scale: 1.1;
@@ -157,6 +158,6 @@
     }
 
     .socials > img {
-        width: 1em;
+        width: 2em;
     }
  }

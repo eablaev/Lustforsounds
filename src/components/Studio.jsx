@@ -13,6 +13,10 @@ function Studio () {
     const [infoTabVisible, setInfoTabVisible] = useState(false);
     const [infoTab, setInfoTab] = useState(null)
 
+    function handleEmail () {
+        window.open('mailto:ervin@lustforsounds.com?subject=Lustforsounds Studio Inquiry&body=')
+    }
+
     function onClick(e) {
         setInfoTabVisible(!infoTabVisible);
         const tabName = e.target.innerHTML;
@@ -41,17 +45,27 @@ function Studio () {
          <h4 className={styles.goBack} onClick={handleBack}>back</h4>   
         <h1>Studio</h1>
         <div className={styles.studioBody}>
-            <div className={styles.decorationDiv}></div>
-            <div className={styles.infoContainer}>
-                <p>We offer a cozy and safe space for recording and writing sessions, equipped with professional gear and amazing vibes. Whether you need to record vocals, instruments, or beats, we have the perfect environment to suit your creative needs.
-                </p>
-                <div className={styles.btnsContainer}>
-                    <div onClick={onClick}>Gear List</div>
-                    <div onClick={onClick}>Plugins List</div>
-                    <div onClick={onClick}>See The Space</div>   
+            <div className={styles.studioBodyCenter}>
+                <div className={styles.decorationDiv}></div>
+                <div className={styles.infoContainer}>
+                    <p>We offer a cozy and safe space for recording and writing sessions, equipped with professional gear and amazing vibes. Whether you need to record vocals, instruments, or beats, we have the perfect environment to suit your creative needs.
+                    </p>
+                    <div className={styles.btnsContainer}>
+                        <div onClick={onClick}>Gear List</div>
+                        <div onClick={onClick}>Plugins List</div>
+                        <div onClick={onClick}>See The Space</div>   
+                    </div>
+                
                 </div>
             </div>
-        </div>    
+            
+            <div className={styles.contactOptions}>
+                    <div onClick={handleEmail}>Email Us</div>
+                    <a href="tel:555-555-5555">812-844-6500</a>
+        </div> 
+            
+        </div>  
+        
     </div>
        
     )

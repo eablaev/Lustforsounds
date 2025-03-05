@@ -6,6 +6,7 @@ import HeaderBigScreen from './HeaderBigScreen'
 
 import ig from '../assets/socials/instagram.png'
 import spotify from '../assets/socials/spotify-logo.png'
+import call from '../assets/socials/call.png'
 import mail from '../assets/socials/mail.png'
 
 import styles from './MainPage.module.css'
@@ -78,9 +79,10 @@ function MainPage () {
                         </Link>  
                     </ul>
                     <div className={styles.socials}>
+
                         <img src={ig} alt="instagram icon" onClick={handleSocials} />
-                        <img src={spotify} alt="spotify icon" onClick={handleSocials}/>
                         <img src={mail} alt="mail icon" onClick={handleSocials}/>
+                        <img src= {call} alt="phone icon" onClick={handleSocials} />
                     </div>
 
                 </div>
