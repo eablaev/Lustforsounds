@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
     <script>
-        if (!window.location.pathname.startsWith("/Lustforsounds")) {
-            window.location.replace("/Lustforsounds" + window.location.pathname + window.location.search);
-        }
+        const path = window.location.pathname.replace(/^\/Lustforsounds/, '');
+        window.location.replace("https://eablaev.github.io/Lustforsounds" + path + window.location.search);
     </script>
 </head>
 <body>
