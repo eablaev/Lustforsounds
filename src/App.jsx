@@ -11,7 +11,7 @@ import ErrorPage from './components/ErrorPage';
 import './App.css'
 
 function App() {
-
+    const basename = import.meta.env.MODE === "production" ? "/Lustforsounds" : "/"
     const router = createBrowserRouter([
             {
               path: '/',
@@ -42,7 +42,8 @@ function App() {
               path: '/clients',
               element: <ClientsPage />,
             },
-    ]);
+            
+    ], { basename: basename  } );
       
     return <RouterProvider router={router} />;
 }
