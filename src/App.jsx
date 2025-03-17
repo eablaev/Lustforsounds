@@ -11,7 +11,8 @@ import ErrorPage from './components/ErrorPage';
 import './App.css'
 
 function App() {
-    const basename = import.meta.env.MODE === "production" ? "/Lustforsounds" : "/"
+    // const basename = import.meta.env.MODE === "production" ? "/Lustforsounds" : "/"
+    const basename = "/";
     const router = createBrowserRouter([
             {
               path: '/',
@@ -43,7 +44,10 @@ function App() {
               element: <ClientsPage />,
             },
             
-    ], { basename: basename  } );
+    ], { basename: basename, 
+        future: { 
+        v7_normalizeFormMethod: true 
+    }  } );
       
     return <RouterProvider router={router} />;
 }
